@@ -1,4 +1,13 @@
-NOTE: I developed this project before I became familiar with git and source control. If I could do it over again I would commit frequently, and use feature branches for big changes.
+Developer's note: 
+Thank you for checking out this project! If you want to see some code I've written, start with the [ChunkThreadChild](https://github.com/Endless-98/Infinite-Voxel-Terrain-Plugin-Viewing-Only/blob/main/Source/InfiniteVoxelTerrainPlugin/Private/ChunkThreadChild.cpp) class. My favorite function is GenerateChunkMeshData(), on line 240.
+
+The code in this project is my own work, with minimal use of AI for low-level problem solving, which I then rewrote/refined myself.
+This project was developed before I learned git, which is why there is no commit history. I now use git for all of my projects.
+
+I am aware that this project does not perfectly adhere to production standards, as it uses some magic numbers, and there are several monolithic classes that could be broken down and better organized. 
+I'd love to rewrite it one day to take into account everything I've learned about proper production-grade code, but despite that, it is a powerful and neat plugin, and I really enjoyed developing it!
+
+[YouTube Trailer](https://www.youtube.com/watch?v=obLBIMXbz2s)
 
 # **Infinite Voxel Terrain Plugin** **Documentation**
 
