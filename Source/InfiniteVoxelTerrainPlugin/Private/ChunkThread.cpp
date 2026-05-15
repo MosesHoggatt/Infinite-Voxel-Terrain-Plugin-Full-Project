@@ -182,15 +182,15 @@ void FChunkThread::UpdateTempVariables()
 		// These values might be changed by the game thread while we loop, so we copy them to local variables
 		FScopeLock Lock(&ChunkGenMutex);
 
-		TempGenrationRadius = ChunkGenerationRadius;
+		TempGenerationRadius = ChunkGenerationRadius;
 		TempCollisionGenRadius = CollisionGenerationRadius;
 		TempChunkGenRadius = ChunkGenerationRadius;
 	}
 
 	if (GetGenDistanceShouldBeCollision(TrackedIndex))
-		TempGenrationRadius = TempCollisionGenRadius;
+		TempGenerationRadius = TempCollisionGenRadius;
 	else
-		TempGenrationRadius = TempChunkGenRadius;
+		TempGenerationRadius = TempChunkGenRadius;
 }
 
 void FChunkThread::UpdateChunks()
@@ -398,7 +398,7 @@ bool FChunkThread::FindNextNeededHeightmap(FVector2D& OutHeightmapLocation, TArr
 	const FVector2D& TrackedLocation{ PlayerLocations[TrackedIndex] };
 	int32& RingChunkDistance{ TrackedChunkRingDistance[TrackedIndex] };
 	int32& RingCount{ TrackedChunkRingCount[TrackedIndex] };
-	const int32& ChunkGenRadius{ TempGenrationRadius };
+	const int32& ChunkGenRadius{ TempGenerationRadius };
 	const int32& CollisionGenRadius{ TempCollisionGenRadius };
 
 	OutLocationsNeedingUnhide = nullptr;
@@ -451,7 +451,7 @@ bool FChunkThread::FindNextNeededHeightmap(FVector2D& OutHeightmapLocation, TArr
 			}
 			ChunkAngleIndex++;
 		}
-
+        // We've completed a circle
 		if (ChunkAngleIndex == CircumferenceInChunks)
 			RingCount++;
 	}
